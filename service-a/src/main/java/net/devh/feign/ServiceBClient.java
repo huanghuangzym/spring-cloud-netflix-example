@@ -4,14 +4,11 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * User: Michael
- * Email: yidongnan@gmail.com
- * Date: 2016/6/3
- */
-@FeignClient(name = "service-b")
+
+@FeignClient(name = "service-b",url = "http://service-b.metadata.asm.com")
 public interface ServiceBClient {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/bbbbbbbbbbb", method = RequestMethod.GET)
     String printServiceB();
 }
+

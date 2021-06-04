@@ -1,0 +1,45 @@
+
+---
+spring:
+  profiles: docker
+  application:
+    name: service-c
+  sleuth:
+    sampler:
+      probability: 1
+  zipkin:
+    base-url: http://zipkin:9411/
+    sender:
+      type: web
+  cloud:
+    client:
+      ipAddress: ${MY_POD_IP}
+
+server:
+  port: ${SERVER_PORT}
+
+eureka:
+  instance:
+    hostname: ${REG_HOSTNAME}
+    #prefer-ip-address: true
+    prefer-ip-address: false
+    metadataMap:
+      asm-serviceentry: service-c.metadata.asm.com
+       #like http  http2  https
+      asm-serviceentry-protol: http
+    #instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+            defaultZone: ${REGISTRY_URL}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: ALWAYS

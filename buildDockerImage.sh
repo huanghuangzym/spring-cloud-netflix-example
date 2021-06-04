@@ -2,8 +2,9 @@
 
 set -eo pipefail
 
-modules=( admin-dashboard config-server eureka-server hystrix-dashboard service-a service-b zuul )
+#modules=( admin-dashboard config-server eureka-server hystrix-dashboard service-a service-b zuul )
+modules=( eureka-server service-a service-b service-c service-d service-e )
 
 for module in "${modules[@]}"; do
-    docker build -t "spring-cloud-netflix-example/${module}:latest" ${module}
+    docker build -t "harbor-b.alauda.cn/asm/netflix/spring-cloud-netflix-example/${module}:latest" ${module} --load
 done

@@ -28,8 +28,16 @@ public class ServiceB1Controller {
     @Value("${msg:unknown}")
     private String msg;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/bbbbbbbbbbb", method = RequestMethod.GET)
     public String printServiceB() {
-        return registration.getServiceId() + " (" + registration.getHost() + ":" + registration.getPort() + ")" + "===>Say " + msg;
+        return registration.getServiceId() + " (" + registration.getHost() + ":" +
+                registration.getPort() + ")" + "===bbbbbbbbbbb>Say " + msg + "\n";
     }
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String printServiceBRoot() {
+        return registration.getServiceId() + " (" + registration.getHost() + ":" +
+                registration.getPort() + ")" + "===>Say " + msg + "\n";
+    }
+
 }
