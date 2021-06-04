@@ -1,5 +1,6 @@
 package net.devh.controller;
 
+import net.devh.feign.ServiceBClient;
 import net.devh.hystrix.HystrixWrappedServiceBClient;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +29,23 @@ public class AServiceController {
     private String name;
 
     @Autowired
-    private HystrixWrappedServiceBClient serviceBClient;
+    //private HystrixWrappedServiceBClient serviceBClient;
+    private ServiceBClient serviceBClient;
+
+
     @Autowired
     private Registration registration;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String printServiceA() {
-        return registration.getServiceId() + " (" + registration.getHost() + ":" + registration.getPort() + ")" + "===>name:" + name + "<br/>" + serviceBClient.printServiceB();
+        return registration.getServiceId() + " (" + registration.getHost() + ":" +
+                registration.getPort() + ")" + "===>name:" + name + "<br/>" + 
+                serviceBClient.printServiceB();
     }
+
+    @RequestMapping(value = "/ping", method = RequestMethod.GET)
+    public String printping() {
+        return "get ping";
+    }
+
 }

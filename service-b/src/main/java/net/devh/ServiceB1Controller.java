@@ -30,6 +30,7 @@ public class ServiceB1Controller {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String printServiceB() {
-        return registration.getServiceId() + " (" + registration.getHost() + ":" + registration.getPort() + ")" + "===>Say " + msg;
+        return registration.getServiceId() + " (" + registration.getHost() + ":" +
+                registration.getPort() + ")" + "===>Say " + msg + "\n";
     }
 }
