@@ -54,6 +54,7 @@ eureka:
     serviceUrl:
             defaultZone:  ${REGISTRY_URL}
 management:
+  port: 8080
   endpoints:
     web:
       exposure:

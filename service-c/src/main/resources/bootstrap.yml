@@ -24,7 +24,7 @@ eureka:
     #prefer-ip-address: true
     prefer-ip-address: false
     metadataMap:
-      asm-serviceentry: service-c.metadata.asm.com
+      asm-serviceentry: service-c
        #like http  http2  https
       asm-serviceentry-protol: http
     #instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
