@@ -53,14 +53,14 @@ public class AServiceController {
     @Autowired
     private Registration registration;
 
-    @RequestMapping(value = "/a", method = RequestMethod.GET)
+    @RequestMapping(value = "/fa", method = RequestMethod.GET)
     public String printServiceA() {
         return registration.getServiceId() + " (" + registration.getHost() + ":" +
                 registration.getPort() + ")" + "===>name:" + name + "<br/>" + 
                 serviceAClient.printServiceA();
     }
 
-    @RequestMapping(value = "/b", method = RequestMethod.GET)
+    @RequestMapping(value = "/fb", method = RequestMethod.GET)
     public String printServiceB() {
         return registration.getServiceId() + " (" + registration.getHost() + ":" +
                 registration.getPort() + ")" + "===>name:" + name + "<br/>" + 
@@ -68,14 +68,14 @@ public class AServiceController {
     }
 
 
-    @RequestMapping(value = "/c", method = RequestMethod.GET)
+    @RequestMapping(value = "/fc", method = RequestMethod.GET)
     public String printServiceC() {
         return registration.getServiceId() + " (" + registration.getHost() + ":" +
                 registration.getPort() + ")" + "===>name:" + name + "<br/>" + 
                 serviceCClient.printServiceC();
     }
 
-    @RequestMapping(value = "/e", method = RequestMethod.GET)
+    @RequestMapping(value = "/fe", method = RequestMethod.GET)
     public String printServiceE() {
         return registration.getServiceId() + " (" + registration.getHost() + ":" +
                 registration.getPort() + ")" + "===>name:" + name + "<br/>" + 
@@ -92,13 +92,14 @@ public class AServiceController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String printroot() {
-        return "get root \n";
+        return registration.getServiceId() + " (" + registration.getHost() + ":" +
+        registration.getPort() + ")" + "===>name:" + name+ "ip:" + System.getenv("MY_POD_IP") +"\n";
     }
 
 
     @RequestMapping(value = "/ping", method = RequestMethod.GET)
     public String printping() {
-        return "get ping \n";
+        return "get ping \n"+ "ip:" + System.getenv("MY_POD_IP") +"\n";
     }
 
 }

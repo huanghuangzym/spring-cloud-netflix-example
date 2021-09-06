@@ -31,13 +31,13 @@ public class ServiceB1Controller {
     @RequestMapping(value = "/bbbbbbbbbbb", method = RequestMethod.GET)
     public String printServiceB() {
         return registration.getServiceId() + " (" + registration.getHost() + ":" +
-                registration.getPort() + ")" + "===bbbbbbbbbbb>Say " + msg + "\n";
+                registration.getPort() + ")" + "===bbbbbbbbbbb>Say " + msg + "ip:" + System.getenv("MY_POD_IP") +"\n";
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String printServiceBRoot() {
         return registration.getServiceId() + " (" + registration.getHost() + ":" +
-                registration.getPort() + ")" + "===>Say " + msg + "\n";
+                registration.getPort() + ")" + "===>Say " + msg + "ip:" + System.getenv("MY_POD_IP") +"\n" ;
     }
 
 }
