@@ -42,11 +42,7 @@ eureka:
   instance:
     #hostname: ${REG_HOSTNAME}
     prefer-ip-address: true
-    nonSecurePort: 30666
-    metadataMap:
-      asm-serviceentry: service-a.metadata.asm.com
-       #like http  http2  https
-      asm-serviceentry-protol: http
+    #nonSecurePort: 30666
     instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
   client:
     registerWithEureka: true

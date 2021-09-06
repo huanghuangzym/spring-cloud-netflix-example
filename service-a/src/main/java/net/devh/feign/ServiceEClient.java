@@ -5,11 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
+@FeignClient(name = "service-e",url = "http://spring-gateway/SERVICE-E")
+public interface ServiceEClient {
 
-@FeignClient(name = "service-c",url = "http://spring-gateway/SERVICE-C")
-public interface ServiceCClient {
-
-    @RequestMapping(value = "/cccccccccccc", method = RequestMethod.GET)
-    String printServiceC();
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    String printServiceE();
 }
 

@@ -48,12 +48,8 @@ feign:
 
 eureka:
   instance:
-    hostname: ${REG_HOSTNAME}
+    #hostname: ${REG_HOSTNAME}
     prefer-ip-address: false
-    metadataMap:
-      asm-serviceentry: service-d.metadata.asm.com
-       #like http  http2  https
-      asm-serviceentry-protol: http
     #instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
   client:
     registerWithEureka: true
