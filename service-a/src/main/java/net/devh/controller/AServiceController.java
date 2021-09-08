@@ -2,6 +2,7 @@ package net.devh.controller;
 
 import net.devh.feign.ServiceBClient;
 import net.devh.feign.ServiceCClient;
+import net.devh.feign.ServiceEClient;
 import net.devh.feign.BaiduClient;
 //import net.devh.ribbon.RBServiceBClient;
 import net.devh.hystrix.HystrixWrappedServiceBClient;
@@ -40,17 +41,20 @@ public class AServiceController {
     private ServiceCClient serviceCClient;
 
     @Autowired
+    private ServiceEClient serviceEClient;
+
+    @Autowired
     private BaiduClient bdClient;
 
 
     @Autowired
     private Registration registration;
 
-    @RequestMapping(value = "/hfb", method = RequestMethod.GET)
-    public String printServiceHFB() {
+    @RequestMapping(value = "/fe", method = RequestMethod.GET)
+    public String printServiceFE() {
         return registration.getServiceId() + " (" + registration.getHost() + ":" +
                 registration.getPort() + ")" + "===>name:" + name + "<br/>" + 
-                hfServiceBClient.printServiceB();
+                serviceEClient.printServiceE();
     }
 
 

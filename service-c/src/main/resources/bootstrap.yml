@@ -20,14 +20,10 @@ server:
 
 eureka:
   instance:
-    hostname: ${REG_HOSTNAME}
-    #prefer-ip-address: true
-    prefer-ip-address: false
-    metadataMap:
-      asm-serviceentry: service-c
-       #like http  http2  https
-      asm-serviceentry-protol: http
-    #instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+    #hostname: ${REG_HOSTNAME}
+    prefer-ip-address: true
+    #prefer-ip-address: false
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
   client:
     registerWithEureka: true
     fetchRegistry: true

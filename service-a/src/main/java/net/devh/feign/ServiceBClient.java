@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-@FeignClient(name = "service-b",url = "http://service-b.metadata.asm.com")
+@FeignClient(name = "service-b",url = "http://spring-gateway/SERVICE-B")
 public interface ServiceBClient {
 
     @RequestMapping(value = "/bbbbbbbbbbb", method = RequestMethod.GET)
