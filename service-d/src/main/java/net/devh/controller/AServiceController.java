@@ -93,13 +93,20 @@ public class AServiceController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String printroot() {
         return registration.getServiceId() + " (" + registration.getHost() + ":" +
-        registration.getPort() + ")" + "===>name:" + name+ "ip:" + System.getenv("MY_POD_IP") +"\n";
+        registration.getPort() + ")" + "===>name:" + name+ " ip:" + System.getenv("MY_POD_IP") +"\n";
     }
 
 
     @RequestMapping(value = "/ping", method = RequestMethod.GET)
     public String printping() {
-        return "get ping \n"+ "ip:" + System.getenv("MY_POD_IP") +"\n";
+        return "get ping \n"+ " ip:" + System.getenv("MY_POD_IP") +"\n";
     }
+
+    @RequestMapping(value = "/springcheck", method = RequestMethod.GET)
+    public String printServiceBCheck() {
+        return registration.getServiceId() + " (" + registration.getHost() + ":" +
+                registration.getPort() + ")" + "===>Say "+ name + " ip:" + System.getenv("MY_POD_IP") +"\n" ;
+    }
+
 
 }

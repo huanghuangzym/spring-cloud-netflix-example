@@ -37,7 +37,19 @@ public class ServiceB1Controller {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String printServiceBRoot() {
         return registration.getServiceId() + " (" + registration.getHost() + ":" +
-                registration.getPort() + ")" + "===>Say " + msg + "ip:" + System.getenv("MY_POD_IP") +"\n" ;
+                registration.getPort() + ")" + "===>Say " + msg + " ip:" + System.getenv("MY_POD_IP") +"\n" ;
+    }
+
+    @RequestMapping(value = "/springcheck", method = RequestMethod.GET)
+    public String printServiceBCheck() {
+        return registration.getServiceId() + " (" + registration.getHost() + ":" +
+                registration.getPort() + ")" + "===>Say " + msg + " ip:" + System.getenv("MY_POD_IP") +"\n" ;
+    }
+
+    @RequestMapping(value = "/ping", method = RequestMethod.GET)
+    public String printServiceBPing() {
+        return registration.getServiceId() + " (" + registration.getHost() + ":" +
+                registration.getPort() + ")" + "===>Say " + msg + " ip:" + System.getenv("MY_POD_IP") +"\n" ;
     }
 
 }
