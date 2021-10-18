@@ -49,11 +49,17 @@ feign:
 eureka:
   instance:
     hostname: ${REG_HOSTNAME}
+    #statusPageUrlPath: ${server.servlet.context-path}/info
+    #healthCheckUrlPath: ${server.servlet.context-path}/health
+    #homePageUrl: http://${REG_HOSTNAME}:30666${server.servlet.context-path}
+    statusPageUrl: http://${REG_HOSTNAME}:${REG_PORT}/actuator/info
+    healthCheckUrl: http://${REG_HOSTNAME}:${REG_PORT}/actuator/health
+    #metadataMap:
+      #management.context-path: ${server.servlet.context-path}
+    #prefer-ip-address: true
     prefer-ip-address: false
-    metadataMap:
-      asm-serviceentry: service-d.metadata.asm.com
-       #like http  http2  https
-      asm-serviceentry-protol: http
+    nonSecurePort: ${REG_PORT}
+    nonSecurePortEnabled: true
     #instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
   client:
     registerWithEureka: true

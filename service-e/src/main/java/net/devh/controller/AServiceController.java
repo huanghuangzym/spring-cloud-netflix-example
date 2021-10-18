@@ -1,7 +1,9 @@
 package net.devh.controller;
 
+import net.devh.feign.ServiceAClient;
 import net.devh.feign.ServiceBClient;
 import net.devh.feign.ServiceCClient;
+import net.devh.feign.ServiceDClient;
 import net.devh.feign.BaiduClient;
 //import net.devh.ribbon.RBServiceBClient;
 import net.devh.hystrix.HystrixWrappedServiceBClient;
@@ -31,6 +33,9 @@ public class AServiceController {
     private HystrixWrappedServiceBClient hfServiceBClient;
 
     @Autowired
+    private ServiceAClient serviceAClient;
+
+    @Autowired
     private ServiceBClient serviceBClient;
 
     //@Autowired
@@ -38,6 +43,9 @@ public class AServiceController {
 
     @Autowired
     private ServiceCClient serviceCClient;
+
+    @Autowired
+    private ServiceDClient serviceDClient;
 
     @Autowired
     private BaiduClient bdClient;
@@ -53,6 +61,12 @@ public class AServiceController {
                 hfServiceBClient.printServiceB();
     }
 
+    @RequestMapping(value = "/fa", method = RequestMethod.GET)
+    public String printServiceFA() {
+        return registration.getServiceId() + " (" + registration.getHost() + ":" +
+                registration.getPort() + ")" + "===>name:" + name + "<br/>" + 
+                serviceAClient.printServiceA();
+    }
 
     @RequestMapping(value = "/fb", method = RequestMethod.GET)
     public String printServiceFB() {
@@ -63,10 +77,17 @@ public class AServiceController {
 
 
     @RequestMapping(value = "/fc", method = RequestMethod.GET)
-    public String printServiceAC() {
+    public String printServiceFC() {
         return registration.getServiceId() + " (" + registration.getHost() + ":" +
                 registration.getPort() + ")" + "===>name:" + name + "<br/>" + 
                 serviceCClient.printServiceC();
+    }
+
+    @RequestMapping(value = "/fd", method = RequestMethod.GET)
+    public String printServiceFD() {
+        return registration.getServiceId() + " (" + registration.getHost() + ":" +
+                registration.getPort() + ")" + "===>name:" + name + "<br/>" + 
+                serviceDClient.printServiceD();
     }
 
 
@@ -82,6 +103,13 @@ public class AServiceController {
         return registration.getServiceId() + " (" + registration.getHost() + ":" +
         registration.getPort() + ")" + "===>name:" + name+ "\n";
     }
+
+    @RequestMapping(value = "/eeeeeee", method = RequestMethod.GET)
+    public String printServiceEEEEEEE() {
+        return registration.getServiceId() + " (" + registration.getHost() + ":" +
+        registration.getPort() + ")" + "===>name:" + name+ "\n";
+    }
+
 
     @RequestMapping(value = "/ping", method = RequestMethod.GET)
     public String printping() {

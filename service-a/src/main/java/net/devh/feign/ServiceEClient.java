@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-@FeignClient(name = "service-b")
-public interface ServiceBClient {
+@FeignClient(name = "service-e")
+public interface ServiceEClient {
 
-    @RequestMapping(value = "/bbbbbbbbbbb", method = RequestMethod.GET)
-    String printServiceB();
+    @RequestMapping(value = "/eeeeeee", method = RequestMethod.GET)
+    String printServiceE();
 }
 
